@@ -8,12 +8,12 @@ const Header = ({ activePage }) => {
   };
 
   return (
-    <div className="max-h-[50%] h-3/6 max-w-full flex justify-center items-center relative p-0">
+    <div className="max-h-[40%] h-[40%] max-w-full flex justify-center items-center relative p-0 overflow-hidden">
       <div
         style={{
           backgroundImage: `url(${backgroundImages[activePage]})`,
         }}
-        className="bg-center bg-cover bg-no-repeat hover:scale-[1.01] transition duration-500 h-full w-full brightness-50 border-b-2 border-b-secondary shadow-xl"
+        className="bg-center bg-cover bg-no-repeat h-full w-full brightness-50 shadow-2xl transition duration-500 hover:scale-110"
       ></div>
       <h3 className="text-background font-heading text-5xl absolute">
         {activePage}
