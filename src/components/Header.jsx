@@ -8,7 +8,7 @@ const Header = ({ activePage }) => {
   };
 
   return (
-    <div className="max-h-[40%] h-[40%] max-w-full flex justify-center items-center relative p-0 overflow-hidden">
+    <div className="h-64 max-w-full flex justify-center items-center relative p-0 overflow-hidden">
       <div
         style={{
           backgroundImage: `url(${backgroundImages[activePage]})`,

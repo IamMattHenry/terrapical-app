@@ -3,10 +3,10 @@ import { useState } from "react";
 
 const Navbar = ({ setActivePage }) => {
   const navItems = [
-    {label: "Index", href: "#", class: "transition rounded-md ease-in-out hover:bg-background hover:text-primary hover:rounded-md focus:bg-background focus:text-primary focus:rounded-md  duration-300 p-3"},
-    {label: "Care", href: "#", class: "transition rounded-md ease-in-out hover:bg-background hover:text-primary hover:rounded-md focus:bg-background focus:text-primary focus:rounded-md duration-300 p-3"},
-    {label: "About", href: "#", class: "transition rounded-md ease-in-out hover:bg-background hover:text-primary hover:rounded-md focus:bg-background focus:text-primary focus:rounded-md duration-300 p-3"},
-    {label: "Contact", href: "#", class: "transition rounded-md ease-in-out hover:bg-background hover:text-primary hover:rounded-md focus:bg-background focus:text-primary focus:rounded-md duration-300 p-3"}
+    {label: "Index", href: "#index", class: "transition rounded-md ease-in-out hover:bg-background hover:text-primary hover:rounded-md focus:bg-background focus:text-primary focus:rounded-md  duration-300 p-3"},
+    {label: "Care", href: "#care", class: "transition rounded-md ease-in-out hover:bg-background hover:text-primary hover:rounded-md focus:bg-background focus:text-primary focus:rounded-md duration-300 p-3"},
+    {label: "About", href: "#about", class: "transition rounded-md ease-in-out hover:bg-background hover:text-primary hover:rounded-md focus:bg-background focus:text-primary focus:rounded-md duration-300 p-3"},
+    {label: "Contact", href: "#contact", class: "transition rounded-md ease-in-out hover:bg-background hover:text-primary hover:rounded-md focus:bg-background focus:text-primary focus:rounded-md duration-300 p-3"}
 ]
 
   const [barOpen, setBarOpen] = useState(false);
@@ -27,7 +27,7 @@ const Navbar = ({ setActivePage }) => {
           <h3 className="text-background font-heading font-bold text-2xl md:text-3xl">
             <a href="#">Terrapical</a>
           </h3>
-          <ul className="hidden lg:flex space-x-10 text-background font-heading text-base">
+          <ul className="hidden lg:flex space-x-5 text-background font-heading text-lg">
             {navItems.map((item, index) => (
               <li
                 className={item.class}
