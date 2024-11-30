@@ -1,13 +1,14 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
-const Navbar = ({ setActivePage }) => {
+const Navbar = () => {
   const navItems = [
-    {label: "Index", href: "#index", class: "transition rounded-md ease-in-out hover:bg-background hover:text-primary hover:rounded-md focus:bg-background focus:text-primary focus:rounded-md  duration-300 p-3"},
-    {label: "Care", href: "#care", class: "transition rounded-md ease-in-out hover:bg-background hover:text-primary hover:rounded-md focus:bg-background focus:text-primary focus:rounded-md duration-300 p-3"},
-    {label: "About", href: "#about", class: "transition rounded-md ease-in-out hover:bg-background hover:text-primary hover:rounded-md focus:bg-background focus:text-primary focus:rounded-md duration-300 p-3"},
-    {label: "Contact", href: "#contact", class: "transition rounded-md ease-in-out hover:bg-background hover:text-primary hover:rounded-md focus:bg-background focus:text-primary focus:rounded-md duration-300 p-3"}
-]
+    { label: "Index", to: "/index" },
+    { label: "Care", to: "/care" },
+    { label: "About", to: "/about" },
+    { label: "Contact", to: "/contact" },
+  ];
 
   const [barOpen, setBarOpen] = useState(false);
 
@@ -15,60 +16,53 @@ const Navbar = ({ setActivePage }) => {
     setBarOpen(!barOpen);
   };
 
-  const handleNavigation = (label) => {
-    setActivePage(label);
-    setBarOpen(false); 
-  };
-
   return (
     <nav className="sticky top-0 z-50 py-3 bg-primary">
       <div className="container mx-auto relative">
         <div className="flex justify-between items-center px-2">
           <h3 className="text-background font-heading font-bold text-2xl md:text-3xl">
-            <a href="#">Terrapical</a>
+            <NavLink to="/">Terrapical</NavLink>
           </h3>
           <ul className="hidden lg:flex space-x-5 text-background font-heading text-lg">
             {navItems.map((item, index) => (
-              <li
-                className={item.class}
-                key={index}
-                onClick={() => handleNavigation(item.label)}
-              >
-                <a href={item.href}>{item.label}</a>
+              <li key={index}>
+                <NavLink
+                  to={item.to}
+                  className={({ isActive }) =>
+                    `transition rounded-md ease-in-out hover:bg-background hover:text-primary p-3 ${
+                      isActive ? "bg-background text-primary" : ""
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
               </li>
             ))}
           </ul>
           <div className="lg:hidden md:flex flex-col justify-end">
             <button onClick={toggleNavbar}>
               {barOpen ? (
-                <X
-                  className="transition ease-linear hover:rotate-180 hover:-scale-125
-                  focus:rotate-180 focus:-scale-125
-                  duration-500"
-                  size={36}
-                  color="#EDF1D6"
-                />
+                <X className="transition ease-linear duration-500" size={36} color="#EDF1D6" />
               ) : (
-                <Menu
-                  className="transition ease-linear hover:rotate-180 hover:-scale-125
-                  focus:rotate-180 focus:-scale-125 
-                  duration-500"
-                  size={36}
-                  color="#EDF1D6"
-                />
+                <Menu className="transition ease-linear duration-500" size={36} color="#EDF1D6" />
               )}
             </button>
           </div>
           {barOpen && (
             <ul className="absolute inset-x-0 top-12 bg-primary py-5 px-7 text-center font-heading text-background text-lg">
               {navItems.map((item, index) => (
-                <li
-                  className="my-3 transition ease-in-out hover:bg-background hover:text-primary hover:rounded-full
-                  focus:bg-background focus:text-primary focus:rounded-full duration-300"
-                  key={index}
-                  onClick={() => handleNavigation(item.label)}
-                >
-                  <a href={item.href}>{item.label}</a>
+                <li key={index}>
+                  <NavLink
+                    to={item.to}
+                    onClick={() => setBarOpen(false)} // Close menu after navigation
+                    className={({ isActive }) =>
+                      `block my-3 transition ease-in-out hover:bg-background hover:text-primary rounded-full ${
+                        isActive ? "bg-background text-primary" : ""
+                      }`
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
                 </li>
               ))}
             </ul>
