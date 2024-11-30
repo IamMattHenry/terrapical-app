@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Questrial&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --text: #40513B;
+    --background: #EDF1D6;
+    --primary: #609966;
+    --secondary: #9DC08B;
+    --accent: #2d5023;
+  }
+  .dark {
+    --text: #b4c5af;
+    --background: #262a0e;
+    --primary: #659f6b;
+    --secondary: #50743e;
+    --accent: #b7dbad;
+  }
+}
