@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const features = [
   {
     title: "Plant Care Guides",
@@ -18,7 +20,9 @@ const features = [
 const FeaturesSection = () => {
   return (
     <>
-      <div className="flex justify-center items-center my-5">
+      <motion.div className="flex justify-center items-center my-5" initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, delay: 1, ease: "easeOut" }}>
         <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-14 lg:grid-cols-4 gap-x-6 gap-y-4">
           {features.map((feature, index) => (
             <div key={index} className="p-4 bg-primary text-background rounded-lg w-64 sm:w-52 h-60 shadow-2xl">
@@ -27,7 +31,7 @@ const FeaturesSection = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
