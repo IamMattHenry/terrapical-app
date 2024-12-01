@@ -5,9 +5,9 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   const navItems = [
     { label: "Index", to: "/index" },
-    { label: "Care", to: "/care" },
     { label: "About", to: "/about" },
     { label: "Contact", to: "/contact" },
+    { label: "Signin", to: "/signin" },
   ];
 
   const [barOpen, setBarOpen] = useState(false);

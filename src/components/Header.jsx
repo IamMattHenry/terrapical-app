@@ -2,9 +2,9 @@ const Header = ({ activePage }) => {
   const backgroundImages = {
     Home: "/images/landing-img/landing-bg.jpg",
     Index: "/images/landing-img/index-bg.jpeg",
-    Care: "/images/landing-img/care-bg.jpg",
     About: "/images/landing-img/about-bg.jpg",
     Contact: "/images/landing-img/contact-bg.jpg",
+    Signin: "/images/landing-img/sign-in-bg.jpg",
   };
 
   return (
